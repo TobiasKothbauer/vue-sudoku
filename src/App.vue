@@ -1,47 +1,35 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import GameBoard from './components/GameBoard.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <GameBoard />
   </main>
+  <aside>
+    <header><h1>Sudoku</h1></header>
+  </aside>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vw - 4rem);
+  max-height: calc(100vh - 4rem);
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+aside {
+  width: 100%;
+  padding: 2rem 0;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+@media (min-width: 969px) {
+  aside {
+    min-width: 300px;
+    padding: 0 2rem;
   }
 }
 </style>
