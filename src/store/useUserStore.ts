@@ -1,7 +1,7 @@
-import {defineStore} from "pinia";
+import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore('user', () => {
-    const name = "Tobi"
+    const name = 'Tobi'
 
     return { name }
 })
