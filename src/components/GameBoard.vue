@@ -1,14 +1,5 @@
 <script setup lang="ts">
 import SudokuBlock from './SudokuBlock.vue'
-import {router} from "@/router";
-import {useUserStore} from "@/store/useUserStore";
-
-const user = useUserStore();
-
-const submitGame = () => {
-  router.push("/end");
-};
-
 </script>
 
 <template>
