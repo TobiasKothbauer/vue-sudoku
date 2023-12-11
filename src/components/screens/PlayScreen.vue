@@ -15,7 +15,9 @@ function submitPuzzle() {
 
 <template>
   <main>
-    <GameBoard />
+    <Suspense>
+      <GameBoard />
+    </Suspense>
   </main>
   <aside>
     <header>

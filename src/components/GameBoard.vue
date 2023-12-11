@@ -1,5 +1,32 @@
 <script setup lang="ts">
 import SudokuBlock from './SudokuBlock.vue'
+import {useGameStore} from "@/store/useGameStore";
+
+function transformArray(originalArray: number[][]) {
+  const newArray = []
+  for (let i = 0; i < originalArray.length; i += 3) {
+    for (let j = 0; j < 3; j++) {
+      const newRow = []
+      for (let k = 0; k < 3; k++) {
+        newRow.push(
+            originalArray[i + k][j * 3],
+            originalArray[i + k][j * 3 + 1],
+            originalArray[i + k][j * 3 + 2],
+        )
+      }
+      newArray.push(newRow)
+    }
+  }
+  return newArray
+}
+
+const game = useGameStore()
+const url = `https://sugoku.onrender.com/board?difficulty=${game.difficultyValue}`
+const result = await fetch(url)
+const { board } = await result.json()
+game.board = transformArray(board)
+console.log(board)
+
 </script>
 
 <template>
